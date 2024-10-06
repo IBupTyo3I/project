@@ -1,0 +1,92 @@
+---
+# tasks file for roles/bind
+
+- name: bind9
+  apt:
+    name: bind9
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: add prefix in /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.0\.1'
+    line: 127.0.0.1 localhost.{{suffix_fqdn}} localhost
+
+- name: localhost in nameserver
+  lineinfile:
+    path: /etc/resolv.conf
+    regexp: '^nameserver'
+    firstmatch: yes
+    line: nameserver localhost
+  
+- name: hooks for avoid dhcp client to update resolv.conf
+  blockinfile:
+    create: yes
+    path: /etc/dhcp/dhclient-enter-hooks.d/nodnsupdate
+    block: |
+      #!/bin/sh
+      make_resolv_conf(){
+        :
+      }
+
+- name: chmd +x nodnsupdate
+  file:
+    path: /etc/dhcp/dhclient-enter-hooks.d/nodnsupdate
+    mode: '0751'
+
+- name: create file bind resolv
+  template:
+    src: "db.mondomaine.j2"
+    dest: /etc/bind/db.{{suffix_fqdn}}
+
+- name: create file bind resolv inv
+  template:
+    src: "db.ip.j2"
+    dest: /etc/bind/db.{{ansible_all_ipv4_addresses[1].split(".")[0]}}
+
+- name: create named.conf.local
+  template:
+    src: "named.conf.local.j2"
+    dest: /etc/bind/named.conf.local
+
+- name: create named.conf.options
+  template:
+    src: "named.conf.options.j2"
+    dest: /etc/bind/named.conf.options
+
+
+## Enable log
+
+- name: create named.conf.log
+  blockinfile:
+    create: yes
+    path: /etc/bind/named.conf.log
+    block: |
+      logging {
+        channel bind_log {
+          file "/var/lib/bind/bind.log" versions 3 size 5m;
+          severity info;
+          print-category yes;
+          print-severity yes;
+          print-time yes;
+        };
+        category default { bind_log; };
+        category update { bind_log; };
+        category update-security { bind_log; };
+        category security { bind_log; };
+        category queries { bind_log; };
+        category lame-servers { null; };
+      };
+
+- name: add log into named.conf
+  lineinfile:
+    path: /etc/bind/named.conf
+    line: include "/etc/bind/named.conf.log";
+
+- name: restart bind9
+  service:
+    name: bind9
+    state: restarted
+  when: ansible_os_family == "Debian"

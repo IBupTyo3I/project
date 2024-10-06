@@ -1,0 +1,35 @@
+---
+
+- hosts: server2.my
+  become: true
+  tasks:
+  - name: Install zabbix-agent on Ubuntu
+    apt:
+            name=zabbix-agent
+            state=present
+
+  - name: Install zabbix release package
+    apt:
+      deb: https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
+
+    when:
+       ansible_os_family == "Debian"
+    notify:
+        zabbix-agent systemd
+
+- hosts: server3.my
+  become: true
+  tasks:
+  - name: Install zabbix-agent on Ubuntu
+    apt:
+        name=zabbix-agent
+        state=present
+
+  - name: Install zabbix release package
+    apt:
+      deb: https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
+
+    when:
+       ansible_os_family == "Debian"
+    notify:
+        zabbix-agent systemd

@@ -1,0 +1,6 @@
+---
+- name: web systemd
+  systemd:
+    name: zabbix-agent
+    enabled: yes
+    state: started
