@@ -1,3 +1,4 @@
+Для каких-то ролей я не использовал роли Ansible
 ELK
 Установка база mongo для Elasticserch
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv B00A0BD1E2C63C11 && 
