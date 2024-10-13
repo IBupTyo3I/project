@@ -1,0 +1,454 @@
+/*
+Theme Name: Alexia
+Author: Themes Daddy
+Author URI: https://themesdaddy.com/
+Theme URI: https://themesdaddy.com/themes/alexia-free/
+Description: Lightning Fast Speed & Responsive Theme. Alexia is a responsive and fully customizable theme to create any kind of websites. The advanced admin panel will enable you to customize it without any technical knowledge. This theme is lightweight, it will enable you to create almost any type of website such a blog, portfolio, acting and shooting industry, total trendy news, newspaper, mega magazine, fashion, dark themes, petcare, animals wildlife, wooden architecture, plumbing contractor, painting estate, interior design, rooms furniture, home decoration, green floral nature, construction, corporate, multiple agency, business promotion, dark variation, industries, Beauty & spa salons, photography, gym, fitness, health, medical, startups, business agencies, law firms, travel, NGO, charity, yoga, kids education, training institute, university portal, restaurant, meta shop, quick magazines, mutual fund, finance, accounting, consulting ,travel agency website. Theme is fully compatible with popular WordPress plugins like Elementor Page Builder, Slider, Carousal, Beaver Builder, Brizy, Visual Composer, Divi, SiteOrigin, Gutenberg, Block-Enabled, WooCommerce, WPML, Yoast SEO, Shortcode, Jetpack, Contact Form 7, Mailchimp for WordPress, bbPress, Demo Importer, WPForms and more. Your WordPress website will never be let down with this theme. View the demo of Alexia Pro https://demo.themesdaddy.com/alexia-pro/ 
+Tags: one-column, two-columns, right-sidebar, flexible-header, custom-background, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, theme-options, threaded-comments, rtl-language-support, translation-ready, full-width-template, custom-logo, blog, e-commerce, portfolio
+Version: 1.0.47
+Tested up to: 6.6
+Requires PHP: 5.4
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2 or later
+Text Domain: alexia
+Slug: alexia
+Template: flixita
+*/
+
+
+:root {
+    --bs-primary: #db2723;
+    --bs-primary-dark:#e70c07;
+    --bs-primary-light: #db272378;
+    --bs-primary-shadow:rgb(0 123 255 / 0.5);
+    --bs-secondary:#01012f;
+    --bs-secondary-dark: #000000; 
+}
+
+
+@media (min-width: 992px) {
+    .alexia-theme .main-header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        border-top: 0;
+        margin: 0 auto;
+        z-index: 99;
+        background: transparent;
+    }
+    
+     body.alexia-theme.admin-bar .main-header {
+        top: 32px;
+    }
+    
+    .alexia-theme .above-header {
+        background: transparent;
+    }
+
+    .alexia-theme .above-header:before,
+    .alexia-theme .above-header:after   {
+        display:none
+    }
+    
+    .alexia-theme .above-header .widget-left {
+        background: linear-gradient( 116deg, transparent 30%, currentColor 30%, currentColor 70%, transparent 70% ) 50% / 215% 100% no-repeat;
+        color: var(--bs-primary);
+        mix-blend-mode: inherit;
+        padding-left: 55px;
+    }
+    
+    .alexia-theme .navigation-wrapper {
+        border-bottom: 1px solid rgb(108 117 125 / 0.6);
+    }
+
+    .alexia-theme .home-slider, .alexia-theme .home-slider .owl-item img {
+        min-height: 750px;
+        object-fit: cover;
+    }
+    .alexia-theme .main-slider div.main-content {
+        margin-top: 10rem;
+        margin-bottom: 6rem;
+    }
+    
+    .alexia-theme .slider-section + .info-section-2 {
+        margin-top: -3.55rem;
+    }
+    .alexia-theme .breadcrumb-area {
+        min-height: 360px;
+    }
+    .alexia-theme .breadcrumb-center .breadcrumb-content {
+        padding: 200px 0 0;
+    }
+}
+
+.alexia-theme .main-navigation.is-sticky-menu {
+    background: var(--bs-secondary);
+}
+
+.alexia-theme .main-mobile-nav {
+    background: var(--bs-secondary);
+}
+
+
+
+.alexia-theme .main-navigation .main-navbar .main-menu > li.menu-item:not(.focus):not(.active):not(:hover) > a:not(:focus):not(:hover) {
+    color: var(--bs-white);
+}
+
+.alexia-theme .main-navigation .main-navbar .main-menu > li.dropdown > a:before {
+    color: var(--bs-white);
+}
+
+.alexia-theme .main-navbar .main-menu > li.menu-item > a:after {
+    height: 3px;
+}
+
+
+.alexia-theme .main-content h4 {
+    border: none;
+    padding: 10px 15px;
+}
+
+.alexia-theme .main-content h4:before {
+   display:none;
+}
+
+.alexia-theme .main-content h4:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bs-primary);
+    transform: skewX(-20deg);
+    border-radius: 4px;
+    z-index: -1;
+}
+
+.alexia-theme .info-section-2 {
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+@media (max-width: 767px){
+    .alexia-theme .info-section-2 {
+        margin-top: 80px;
+    }
+    .alexia-theme .info-section-2 .widget-contact {
+        margin-bottom: 40px;
+    }
+}
+.alexia-theme .info-section-2 .feature-box-icon {
+    margin-bottom: 1rem;
+}
+
+.alexia-theme .info-section-2 .feature-box-icon i{
+    font-size: 40px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background-color: var(--bs-primary);
+    text-align: center;
+    border-radius: 50%;
+    color: var(--bs-white);
+    transition: 0.8s;
+}
+
+
+.alexia-theme .info-section-2 .widget-contact:hover .feature-box-icon i {
+    background: var(--bs-white);
+    color: var(--bs-primary);
+}
+
+.alexia-theme .info-section-2 .widget-contact {
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    padding: 30px;
+}
+
+.alexia-theme .info-section-2 .widget-contact:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bs-white);
+    z-index: -9;
+    transform: skewY(10deg);
+    border-radius: 30px;
+    box-shadow: 0 10px 35px 0 rgba(92.99999999999996, 72.00000000000001, 223, .08);
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.alexia-theme .info-section-2 .widget-contact .more.read-more {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    background: linear-gradient(115deg, var(--bs-primary), var(--bs-primary), var(--bs-primary));
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    color: var(--bs-white);
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    bottom: -40px;
+    border: 10px solid var(--bs-white);
+    background-size: 150% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.alexia-theme .info-section-2 .widget-contact .fbox-content {
+    margin-bottom: 2rem;
+}
+
+.alexia-theme .info-section-2 .widget-contact:hover:before {
+    transform: skewY(-10deg);
+    
+}
+
+
+.alexia-theme .info-section-2 .feature-box-img {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: 30px;
+    transform: scale(1) skewY(-10deg);
+}
+
+.alexia-theme .info-section-2 .feature-box-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.alexia-theme .info-section-2 .widget-contact:hover .feature-box-inner {
+    z-index: 2;
+    color: var(--bs-white);
+}
+    
+.alexia-theme .info-section-2 .widget-contact:hover .feature-box-img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 0;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.alexia-theme .info-section-2 .widget-contact:hover:after {
+    transform: scale(1) skewY(-10deg);
+}
+.alexia-theme .info-section-2 .widget-contact:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--bs-primary) 50%,transparent);
+    z-index: 0;
+    transform: scale(0) skewY(10deg);
+    border-radius: 30px;
+    transition: all 0.5s ease-in-out 0s;
+    opacity: 0.7;
+}
+
+.alexia-theme .btn {
+    border-radius: 0 !important;
+}
+
+.wp-block-image figcaption {
+    text-align: center;
+}
+
+.wp-block-calendar table caption {
+    color: var(--bs-white);
+    background-color: var(--bs-primary);
+}
+
+.has-background.wp-block-post-author {
+    padding: 1rem;
+}
+
+.wp-block-pullquote.has-text-color blockquote {
+    border-left-color: inherit;
+}
+
+.wp-block-details summary {
+    font-weight: 600;
+}
+
+.wp-block-quote .wp-block-search {
+ 	padding: 5px 0;
+}
+
+a.wc-block-grid__product-link {
+	text-decoration: none;
+}
+
+.wp-block-latest-posts__post-author {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+.wc-block-components-product-title a,
+.wc-block-components-product-title a:hover,
+.wc-block-components-product-title a:focus {
+	text-decoration: none;
+}
+
+.wp-block-verse {
+	padding: 5px 0;
+}
+
+.sidebar h2.wp-block-heading {
+    position: relative;
+    margin-bottom: 0;
+    padding: 16px 18px;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--bs-white);
+    overflow: hidden;
+    font-size: 22px;
+    font-weight: 500;
+    background-color: var(--bs-secondary);
+    border-left: 4px solid var(--bs-primary);
+    border-right: 4px solid var(--bs-primary);
+}
+
+.footer-main .widget .wp-block-heading {
+    color: var(--bs-white);
+    margin-bottom: 1.375rem;
+    padding-bottom: 15px;
+    position: relative;
+    font-size: 1.25rem;
+}
+
+.footer-main .widget .wp-block-heading:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: -40px;
+    margin: auto;
+    width: 35px;
+    height: 2px;
+    background-color: var(--bs-primary);
+}
+
+.footer-main .widget .wp-block-heading::first-letter {
+    color: var(--bs-primary);
+}
+
+.footer-main .textwidget address a {
+    text-decoration: none;
+}
+
+.post-date:focus-within:before {
+    background: var(--bs-secondary) !important;
+}
+
+.post-details-outer .post-title-head {
+    margin-top: 2.5rem;
+}
+
+.blog-inner .bottom-meta .post-author a:focus {
+    color: var(--bs-primary);
+}
+
+.post-comment .comments-count:focus{
+	color: var(--bs-primary);
+}
+
+.footer-main button.wp-block-search__button.wp-element-button:hover,
+.footer-main button.wp-block-search__button.wp-element-button:focus{
+    border: 2px solid var(--bs-primary);
+}
+
+.wp-block-calendar thead th, 
+.wp-block-calendar td {
+    text-align: center;
+}
+
+.service-section{
+    z-index: 0;
+}
+
+.wp-block-calendar table{
+	margin: 0;
+	text-align: center;
+}
+
+.woocommerce span.onsale {
+    z-index: 1;
+}
+
+.shopping-cart .cart-items .item-name {
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.shopping-cart .shopping-cart-items a.remove {
+    transform: translateY(10px);
+}
+
+.woocommerce div.product form.cart .variations th {
+    background: inherit;
+    color: inherit;
+}
+
+.woocommerce div.product form.cart .button {
+    background: var(--bs-primary);
+}
+
+.woocommerce div.product form.cart .button:hover, 
+.woocommerce div.product form.cart .button:focus {
+    background: var(--bs-secondary);
+}
+
+.wp-block-latest-comments {
+    padding: 0;
+}
+
+a.wp-block-latest-posts__post-title {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--bs-secondary);
+}
+
+.woocommerce table.shop_attributes tr:nth-child(even) th {
+    color: var(--bs-secondary);
+}
+
+.single-product .product .product_meta > span a {
+    text-decoration: none;
+}
+
+.woocommerce table.shop_attributes td {
+    padding: 0 1rem;
+}
+
+.woocommerce-Reviews .comment-form {
+    display: block;
+}
+
+.woocommerce table.shop_table td a {
+    text-decoration: none;
+}
